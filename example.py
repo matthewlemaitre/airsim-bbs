@@ -149,16 +149,6 @@ def swapRB(im):
     return cp
 
 
-def misclassify(classes, cm):
-    for i in range(len(classes)):
-        c = CLASSES.index(classes[i])
-        ps = np.squeeze(cm[:,c])
-        classes[i] = np.random.choice(CLASSES, p=ps)
-
-    return classes
-
-
-
 def mainloop(quiet=False):
     try:
         for i in range(LIMIT_FRAMES):
