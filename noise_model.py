@@ -2,6 +2,25 @@ import numpy as np
 import skimage.draw
 
 
+def swapRB(im):
+    """Swaps the first and third channels
+    
+    Parameters
+    ----------
+    im : np.ndarray
+        (GBR) image array.
+    
+    Returns
+    -------
+    np.ndarray
+        (RGB) image array.
+    """
+    cp = im.copy()
+    cp[:, :, 0] = im[:, :, 2]
+    cp[:, :, 2] = im[:, :, 0]
+    return cp
+
+
 def rectangle_perimeter(r0, c0, width, height, shape=None, clip=False):
     """Generates an array with a rectangle of ones and the rest zeros.
     
@@ -302,7 +321,7 @@ def introduce_false_positives(bbs, all_classes, classes=[], min_size=6, p=0.05, 
     return bbs_w_fps, classes
 
 
-def misclassify(classes, cm):
+def misclassify(classes, CLASSES, cm):
     for i in range(len(classes)):
         c = CLASSES.index(classes[i])
         ps = np.squeeze(cm[:,c])

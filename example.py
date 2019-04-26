@@ -142,11 +142,6 @@ def setup():
         print(' ' * (40 - len(msg)) + ('[SUCCESS]' if found else '[FAILED!]'))
 
 
-def swapRB(im):
-    cp = im.copy() 
-    cp[:,:,0] = im[:,:,2]
-    cp[:,:,2] = im[:,:,0]
-    return cp
 
 
 def mainloop(quiet=False):
@@ -199,7 +194,7 @@ def mainloop(quiet=False):
             ##### Add noise to the BBs
             #################################################
             # first do some mis-classification
-            classes = misclassify(classes, CONFUSION_MATRIX)
+            classes = misclassify(classes, CLASSES, CONFUSION_MATRIX)
             # now add some error to the BBs
             bbs = add_jitter(bbs, shape=im.shape, length_scale_fraction=0.05, center_error_fraction=0.05)
             bbs, classes = introduce_false_negatives(bbs, classes, p=0.01, min_size=4)
