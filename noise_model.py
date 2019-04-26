@@ -300,3 +300,15 @@ def introduce_false_positives(bbs, all_classes, classes=[], min_size=6, p=0.05, 
         bbs_w_fps.append([x_start, x_end, y_start, y_end])
         classes.append(np.random.choice(all_classes))
     return bbs_w_fps, classes
+
+
+def misclassify(classes, cm):
+    for i in range(len(classes)):
+        c = CLASSES.index(classes[i])
+        ps = np.squeeze(cm[:,c])
+        classes[i] = np.random.choice(CLASSES, p=ps)
+
+    return classes
+
+
+
