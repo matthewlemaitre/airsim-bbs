@@ -11,7 +11,7 @@ import sys
 from statsmodels.distributions.empirical_distribution import ECDF
 from noise_model import *
 
-
+# Example confusion matrix
 CONFUSION_MATRIX = np.array(
         [[0.85714286,0.,0.14285714,0.,0.,0.,0.],
         [0.06666667,0.8,0.06666667,0.,0.,0.06666667,0.],
