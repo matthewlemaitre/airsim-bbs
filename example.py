@@ -50,6 +50,8 @@ OBJECT_OF_INTEREST_CLASSES = [
 ]
 
 # An exhaustive list of all classes
+# Note that this is separate to the above list, as we may want classes
+# which are not currently exhibited in OBJECT_OF_INTEREST_CLASSES.
 CLASSES = ['mountainbike',
            'car',
            'truck',
@@ -58,7 +60,8 @@ CLASSES = ['mountainbike',
            'sheep',
            'giraffe']
 
-# Confusion matrix for object misclassification emulation
+# Confusion matrix for object misclassification emulation.
+# See https://en.wikipedia.org/wiki/Confusion_matrix for more information
 CONFUSION_MATRIX = np.array(
         [[0.85714286,0.,0.14285714,0.,0.,0.,0.],
         [0.06666667,0.8,0.06666667,0.,0.,0.06666667,0.],
