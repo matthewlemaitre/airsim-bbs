@@ -11,6 +11,7 @@ import sys
 from statsmodels.distributions.empirical_distribution import ECDF
 from noise_model import *
 
+# See https://en.wikipedia.org/wiki/Confusion_matrix for more info
 # Example confusion matrix
 CONFUSION_MATRIX = np.array(
         [[0.85714286,0.,0.14285714,0.,0.,0.,0.],
@@ -29,17 +30,6 @@ plt.rc('text.latex', preamble=r'\usepackage{amsmath}')
 
 GENERATE_NEW_BBS = True
 GENERATE_IMGS = False
-
-
-CORRESPONDING_CLASSES = {
-        'person': 'mountainbike',
-        'bicycle': 'car',
-        'car' : 'truck', 
-        'motorbike': 'dog',
-        'aeroplane': 'horse', 
-        'bus' : 'sheep',
-        'train' : 'giraffe'
-        }
 
 
 CLASSES = ['mountainbike',
