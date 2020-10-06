@@ -3,7 +3,7 @@ import skimage.draw
 
 
 def swapRB(im):
-    """Swaps the first and third channels
+    """Swaps the first and third channels (i.e. swaps RGB to BGR).
     
     Parameters
     ----------
@@ -322,6 +322,7 @@ def introduce_false_positives(bbs, all_classes, classes=[], min_size=6, p=0.05, 
 
 
 def misclassify(classes, CLASSES, cm):
+    """ Mis-classifies some of the objects, based on the confusion matrix"""
     for i in range(len(classes)):
         c = CLASSES.index(classes[i])
         ps = np.squeeze(cm[:,c])
